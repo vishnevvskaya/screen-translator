@@ -1,0 +1,34 @@
+{
+  "languages": {
+    "en": {
+      "Arabic": "ar",
+      "Chinese Simplified": "zh-CN",
+      "Chinese Traditional": "zh-TW",
+      "English": "en",
+      "Japanese": "ja",
+      "Korean": "ko",
+      "Spanish": "es",
+      "French": "fr",
+      "German": "de",
+      "Hindi": "hi",
+      "Italian": "it",
+      "Portuguese": "pt",
+      "Russian": "ru"
+      },
+    "ru": {
+      "Арабский": "ar",
+      "Китайский (упрощённый)": "zh-CN",
+      "Китайский (традиционный)": "zh-TW",
+      "Английский": "en",
+      "Японский": "ja",
+      "Корейский": "ko",
+      "Испанский": "es",
+      "Французский": "fr",
+      "Немецкий": "de",
+      "Хинди": "hi",
+      "Итальянский": "it",
+      "Португальский": "pt",
+      "Русский": "ru"
+    }
+  }
+}
