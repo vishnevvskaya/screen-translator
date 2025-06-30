@@ -3,9 +3,10 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from window.translation_window import TranslationWindow
 
 class CaptureHandler(QtCore.QObject):
-    def __init__(self, window):
+    def __init__(self, window, settings):
         super().__init__()
         self.window = window
+        self.settings = settings
         self.translation_window = None
 
         self.selection = None
@@ -39,7 +40,7 @@ class CaptureHandler(QtCore.QObject):
                 if self.translation_window is not None:
                     self.translation_window.deleteLater()
 
-                self.translation_window = TranslationWindow(self.selection)
+                self.translation_window = TranslationWindow(self.selection, self.settings)
                 self.translation_window.showMinimized()
                 self.translation_window.show()
             self.window.update()

@@ -1,10 +1,10 @@
 from PyQt5 import QtCore
 
-from .OCRManager import OCRManager
+from core.OCRManager import OCRManager
 from modules import *
 
 class TranslationHandler(QtCore.QObject):
-    def __init__(self, window, selection):
+    def __init__(self, window, selection, settings):
         super().__init__()
         self.window = window
 
@@ -14,6 +14,7 @@ class TranslationHandler(QtCore.QObject):
         self.ocr_manager = OCRManager()
         self.ocr_manager.window = window
         self.ocr_manager.selection = selection
+        self.ocr_manager.settings = settings
 
         self.window.mousePressEvent = lambda e: self.setup_events('press', e)
         self.window.mouseMoveEvent = lambda e: self.setup_events('move', e)

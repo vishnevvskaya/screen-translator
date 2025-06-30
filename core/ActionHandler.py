@@ -75,10 +75,20 @@ class ActionHandler(QtCore.QObject):
     
     def show_capture_window(self):
         '''Shows the screen capture window'''
-        if self.capture_window is None:
-            self.capture_window = CaptureWindow()
-        self.window.showMinimized()
+        current_settings = {
+            'from_lang': self.ui.fromlangComboBox.currentIndex(),
+            'to_lang': self.ui.tolangComboBox.currentText(),
+            'translator': self.ui.translatorComboBox.currentText(),
+            'refresh_screen': self.ui.screenrefreshComboBox.currentText(),
+        }
 
+        if hasattr(self, 'capture_window') and self.capture_window is not None:
+            self.capture_window.close()
+            self.capture_window.deleteLater()
+
+        self.capture_window = CaptureWindow(current_settings)
+
+        self.window.showMinimized()
         self.capture_window.show()
         self.capture_window.activateWindow()
         self.capture_window.raise_()

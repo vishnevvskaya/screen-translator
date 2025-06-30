@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from core.TranslationHandler import TranslationHandler
 
 class TranslationWindow(QtWidgets.QWidget):
-    def __init__(self, selection):
+    def __init__(self, selection, settings):
         super().__init__(None)
 
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.Tool)
@@ -20,7 +20,7 @@ class TranslationWindow(QtWidgets.QWidget):
         self.setStyleSheet("background-color: #222222;")
 
         self.setup_ui()
-        self.translation_handler = TranslationHandler(self, selection)
+        self.translation_handler = TranslationHandler(self, selection, settings)
     
     def setup_ui(self):
         main_layout = QtWidgets.QVBoxLayout(self)
