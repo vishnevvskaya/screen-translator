@@ -1,12 +1,10 @@
 from PyQt5 import QtCore
-from paddleocr import PaddleOCR
 import numpy as np
 import pyautogui
 
 from .Utils import Utils
 from .Thread import ModelLoadedThread
 
-model_dir = r"./paddle_models" 
 _ocr_models = {}
 _active_thread = {}
 
@@ -34,13 +32,10 @@ def get_ocr_model(lang_value, callback=None):
     return None
     
 class TextRecognition:
-    def __init__(self, lang_key):
+    def __init__(self, lang_index):
         self.ocr_model = None
-        get_ocr_model(Utils.get_en_languages()[lang_key], lambda model: setattr(self, 'ocr_model', model))
-    
-    def on_model_loaded(self, model):
-        self.ocr_model = model
-    
+        get_ocr_model(list(Utils.get_en_languages().keys())[lang_index], lambda model: setattr(self, 'ocr_model', model))
+
     def get_window_text(self, region):
         if not self.ocr_model:
             return ''
