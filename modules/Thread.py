@@ -1,7 +1,8 @@
 from PyQt5.QtCore import QThread, pyqtSignal
 from paddleocr import PaddleOCR
+from pathlib import Path
 
-model_dir = r"./paddle_models" 
+model_dir = Path('./paddle_models')
 
 class ModelLoadedThread(QThread):
     loaded = pyqtSignal(object)
@@ -21,19 +22,22 @@ class ModelLoadedThread(QThread):
         self.loaded.emit(model)
         
 class RecognitionThread(QThread):
-    text_recognized = pyqtSignal(str)
+    text_translated = pyqtSignal(str)
 
-    def __init__(self, selection, text_recognition):
+    def __init__(self, selection, translator, text_recognition, interval):
         super().__init__()
         self.selection = selection
+        self.translator = translator
         self.text_recognition = text_recognition
+        self.interval = int(float(interval.split()[0])*1000)
         self.flag = True
 
     def run(self):
         while self.flag:
-            text = self.text_recognition.get_window_text(self.selection)
-            self.msleep(100)
-        self.text_recognized.emit(text)
+            text_recognized = self.text_recognition.get_window_text(self.selection)
+            text = self.translator.set_translator(text_recognized)
+            self.text_translated.emit(text)
+            self.msleep(self.interval)
 
     def stop(self):
         self.flag = False
