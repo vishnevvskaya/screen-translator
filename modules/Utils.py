@@ -14,3 +14,9 @@ class Utils:
         with open(Utils.SETTINGS_PATH, 'r', encoding='utf-8') as settings:
             data = json.load(settings)
             return data.get('languages', {}).get('ru', {})
+        
+    @staticmethod
+    def get_memory_tl_languages():
+        with open(Utils.SETTINGS_PATH, 'r', encoding='utf-8') as settings:
+            data = json.load(settings)
+            return data.get('translators', {}).get('MyMemoryTranslator', {})
