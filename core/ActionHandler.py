@@ -39,8 +39,13 @@ class ActionHandler(QtCore.QObject):
     def change_interface_languages(self, lang):
         '''Changes the application interface language'''
         app = QtWidgets.QApplication.instance()
+        active_style = "background-color: #F1E7CE; border: 1px solid #222222; border-radius: 13px;"
+        inactive_style = "background-color: #F0F0F0; border: 1px solid #222222; border-radius: 13px;"
 
         if lang == 'ru':
+            self.ui.enButton.setStyleSheet(inactive_style)
+            self.ui.ruButton.setStyleSheet(active_style)
+
             if self.translator.load('./assets/translations_ru.qm'):
                 app.installTranslator(self.translator)
                 lang_list = list(Utils.get_ru_languages().keys())
@@ -49,6 +54,9 @@ class ActionHandler(QtCore.QObject):
                 for x in (0.4 + 0.2*i for i in range(24) if 0.1 + 0.2*i <= 5.0):
                     self.ui.screenrefreshComboBox.addItem(f"{x:.1f} с")
         else:
+            self.ui.enButton.setStyleSheet(active_style)
+            self.ui.ruButton.setStyleSheet(inactive_style)
+
             app.removeTranslator(self.translator)
             lang_list = list(Utils.get_en_languages().keys())
 
@@ -77,7 +85,7 @@ class ActionHandler(QtCore.QObject):
         '''Shows the screen capture window'''
         current_settings = {
             'from_lang': self.ui.fromlangComboBox.currentIndex(),
-            'to_lang': self.ui.tolangComboBox.currentText(),
+            'to_lang': self.ui.tolangComboBox.currentIndex(),
             'translator': self.ui.translatorComboBox.currentText(),
             'refresh_screen': self.ui.screenrefreshComboBox.currentText(),
         }

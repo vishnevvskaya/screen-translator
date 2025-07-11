@@ -287,7 +287,7 @@ class Ui_MainWindow(object):
 "   border: 0px;\n"
 "}")
         self.translatorComboBox.setObjectName("translatorComboBox")
-        translators = ['Google Translate', 'MyMemoryTranslator', 'Deepl', 'LibreTranslate']
+        translators = ['Google Translate', 'MyMemoryTranslator']
         for translator in translators:
             self.translatorComboBox.addItem(translator)
         self.translatorHLayout.addWidget(self.translatorComboBox)
@@ -412,12 +412,11 @@ class Ui_MainWindow(object):
         self.switchlangFrame = QtWidgets.QFrame(self.settingsWidget)
         self.switchlangFrame.setMinimumSize(QtCore.QSize(30, 0))
         self.switchlangFrame.setMaximumSize(QtCore.QSize(30, 16777215))
-        self.switchlangFrame.setStyleSheet("")
         self.switchlangFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.switchlangFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.switchlangFrame.setObjectName("switchlangFrame")
         self.switchlangVLayout = QtWidgets.QVBoxLayout(self.switchlangFrame)
-        self.switchlangVLayout.setContentsMargins(0, 0, 0, 0)
+        self.switchlangVLayout.setContentsMargins(0, 0, 10, 10)
         self.switchlangVLayout.setObjectName("switchlangVLayout")
         self.enButton = QtWidgets.QPushButton(self.switchlangFrame)
         self.enButton.setMinimumSize(QtCore.QSize(27, 27))
@@ -435,6 +434,7 @@ class Ui_MainWindow(object):
         self.switchlangVLayout.addWidget(self.enButton)
         self.ruButton = QtWidgets.QPushButton(self.switchlangFrame)
         self.ruButton.setMinimumSize(QtCore.QSize(27, 27))
+        self.ruButton.setMaximumSize(QtCore.QSize(27, 27))
         self.ruButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.ruButton.setStyleSheet("QPushButton {\n"
 "    border: 1px solid #222222;\n"
@@ -477,7 +477,7 @@ class Ui_MainWindow(object):
         self.tolangLabel.setText(_translate("MainWindow", "To:"))
         self.translatorLabel.setText(_translate("MainWindow", "Translator:"))
         self.screenrefreshLabel.setText(_translate("MainWindow", "Screen refresh rate:"))
-        self.tipscontentLabel_1.setText(_translate("MainWindow", "<html><head/><body><p>Press the <span style=\" font-style:italic; color:#0078d7;\">PrtSc</span> hotkey to capture the screen and then translate it in real time.</p></body></html>"))
+        self.tipscontentLabel_1.setText(_translate("MainWindow", "<html><head/><body><p>Press the <span style=\" font-style:italic; color:#0078d7;\">F12</span> hotkey to capture the screen and then translate it in real time</p></body></html>"))
         self.tipscontentLabel_2.setText(_translate("MainWindow", "To reset existing settings, click -"))
         self.resetButton.setText(_translate("MainWindow", "reset"))
         self.enButton.setText(_translate("MainWindow", "EN"))
