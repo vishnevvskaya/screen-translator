@@ -5,7 +5,7 @@
       "Chinese Simplified": "zh-CN",
       "Chinese Traditional": "zh-TW",
       "English": "en",
-      "Japanese": "ja",
+      "Japanese": "ja-JP",
       "Korean": "ko",
       "Spanish": "es",
       "French": "fr",
@@ -14,7 +14,7 @@
       "Italian": "it",
       "Portuguese": "pt",
       "Russian": "ru"
-      },
+    },
     "ru": {
       "Арабский": "ar",
       "Китайский (упрощённый)": "zh-CN",
@@ -29,6 +29,23 @@
       "Итальянский": "it",
       "Португальский": "pt",
       "Русский": "ru"
+    }
+  },
+  "translators": {
+    "MyMemoryTranslator": {
+      "Arabic": "ar-SA",
+      "Chinese Simplified": "zh-CN",
+      "Chinese Traditional": "zh-TW",
+      "English": "en-GB",
+      "Japanese": "ja",
+      "Korean": "ko-KR",
+      "Spanish": "es-ES",
+      "French": "fr-FR",
+      "German": "de-DE",
+      "Hindi": "hi-IN",
+      "Italian": "it-IT",
+      "Portuguese": "pt-PT",
+      "Russian": "ru-RU"
     }
   }
 }
