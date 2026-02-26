@@ -10,10 +10,6 @@
   <img src="screenshots/main_window.png" alt="Main Window">
 </p>
 
-<p align="center">
-  <img src="screenshots/translation_example.png" alt="Translation example">
-</p>
-
 > [!NOTE]
 > To improve performance, you should increase the interval between screen refreshes.
 --- 
