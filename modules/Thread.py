@@ -22,8 +22,8 @@ class ModelLoadedThread(QThread):
                             use_doc_unwarping=False,
                             use_textline_orientation=False, 
                             device='gpu',
-                            text_detection_model_dir=f'{model_dir}/det',
-                            text_recognition_model_dir=f'{model_dir}/rec')
+                            text_detection_model_dir=f'{model_dir}/PP-OCRv5_server_det',
+                            text_recognition_model_dir=f'{model_dir}/PP-OCRv5_server_rec')
             logger.info(f'PaddleOCR model for language {self.lang_value} successfully loaded')
             self.loaded.emit(model)
         except Exception as e:
